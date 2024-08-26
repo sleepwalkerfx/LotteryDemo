@@ -10,12 +10,17 @@ import SwiftUI
 struct DrawListItemView: View {
     var model: DrawItemModel
     var body: some View {
+        
         VStack(alignment: .leading, spacing: 10){
-            Text(model.dateTitle)
-                .font(.headline)
+            HStack {
+                Image(systemName: "calendar.circle")
+                    .foregroundStyle(.lotteryDemoBlack)
+                Text(model.id)
+                    .font(.headline)
                 .foregroundStyle(.lotteryDemoBlack)
+            }
             Text(model.drawDate)
-                .font(.title)
+                .font(.title).bold()
                 .foregroundStyle(.lotteryDemoWisteria)
         }
         

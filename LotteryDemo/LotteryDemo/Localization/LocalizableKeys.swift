@@ -12,4 +12,5 @@ enum LocalizableKeys: String {
     case lotteryDraws = "lottery_draws"
     case loading = "loading"
     case dateTitle = "date_title"
+    case drawId = "draw_id"
 }

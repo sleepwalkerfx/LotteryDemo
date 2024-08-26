@@ -103,8 +103,8 @@
 		8152D8172C78AAF300D284D9 /* LotteryDraws */ = {
 			isa = PBXGroup;
 			children = (
-				8152D8182C78AB1F00D284D9 /* DrawListView.swift */,
 				8152D81C2C78AD9E00D284D9 /* DrawItemModel.swift */,
+				8152D8182C78AB1F00D284D9 /* DrawListView.swift */,
 				8152D81E2C78AE3800D284D9 /* DrawListViewModel.swift */,
 				815387B72C7CCEE900DED2B7 /* DrawListItemView.swift */,
 			);
@@ -134,8 +134,8 @@
 		815387A92C7BACA100DED2B7 /* LotteryDrawDetails */ = {
 			isa = PBXGroup;
 			children = (
-				815387AA2C7BACBF00DED2B7 /* LotteryDrawDetailsView.swift */,
 				815387AF2C7BB75100DED2B7 /* LotteryDrawDetailsViewModel.swift */,
+				815387AA2C7BACBF00DED2B7 /* LotteryDrawDetailsView.swift */,
 				815387B12C7CBA1F00DED2B7 /* DrawCardView.swift */,
 				815387B52C7CCE8400DED2B7 /* NumberView.swift */,
 			);

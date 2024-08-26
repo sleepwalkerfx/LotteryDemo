@@ -18,7 +18,7 @@ struct DrawItemModel: Identifiable {
     }
     
     var id: String {
-        draw.id
+        String(format: localizationService.localizedString(forKey: .drawId), draw.id)
     }
     
     var numbers: [String] {
