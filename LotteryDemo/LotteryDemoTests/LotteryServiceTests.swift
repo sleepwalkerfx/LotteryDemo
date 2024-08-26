@@ -12,7 +12,7 @@ import XCTest
 class LotteryServiceTests: XCTestCase {
     
     //Testing valid JSON decoding
-    func testGetDrawsWithValidJSON() {
+    func testGetDrawsWithValidJSON() async {
         // given
         let expectedDraws = [
             Draw(id: "1", number1: "10", number2: "20", number3: "30", number4: "40", number5: "50", number6: "60", drawDate: "2024-08-26", bonusBall: "5", topPrize: 1000000),
@@ -56,7 +56,7 @@ class LotteryServiceTests: XCTestCase {
         
         // when
         do {
-            let draws = try lotteryService.getDraws()
+            let draws = try await lotteryService.getDraws()
             
             // Then
             XCTAssertEqual(draws, expectedDraws, "Expected draws to match the decoded JSON data")
@@ -66,7 +66,7 @@ class LotteryServiceTests: XCTestCase {
     }
     
     // Test invalid JSON decoding
-    func testGetDrawsWithInvalidJSON() {
+    func testGetDrawsWithInvalidJSON() async {
         // Given
         let invalidJSON = """
         {
@@ -92,14 +92,17 @@ class LotteryServiceTests: XCTestCase {
         let lotteryService = LotteryService.shared
         
         //whn
-        XCTAssertThrowsError(try lotteryService.getDraws(), "Expected decoding to throw an error for invalid JSON") { error in
+        do {
+            _ = try await lotteryService.getDraws()
             // then
+            XCTFail("Expected decoding to throw an error for invalid JSON")
+        } catch {
             XCTAssertTrue(error is DecodingError, "Expected a DecodingError, but got \(error)")
         }
     }
     
     // Test empty JSON
-    func testGetDrawsWithEmptyJSON() {
+    func testGetDrawsWithEmptyJSON() async {
         //givn
         let emptyJSON = """
         {
@@ -114,7 +117,7 @@ class LotteryServiceTests: XCTestCase {
         
         //when
         do {
-            let draws = try lotteryService.getDraws()
+            let draws = try await lotteryService.getDraws()
             
             // then
             XCTAssertTrue(draws.isEmpty, "Expected draws to be empty for empty JSON response")

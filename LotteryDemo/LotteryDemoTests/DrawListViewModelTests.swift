@@ -30,7 +30,7 @@ final class DrawListViewModelTests: XCTestCase {
     
     func testFetchDraws_Successful() async {
         //given: mock objects
-        let mockDraw = Draw(id: "1", number1: "0", number2: "1", number3: "2", number4: "3", number5: "4", number6: "5", drawDate: "09-11-2024", bonusBall: "11", topPrize: 10000)
+        let mockDraw = Draw(id: "draw_id", number1: "0", number2: "1", number3: "2", number4: "3", number5: "4", number6: "5", drawDate: "09-11-2024", bonusBall: "11", topPrize: 10000)
         mockLotteryService.mockDraws = [mockDraw]
         
         //when: fetch is called
@@ -41,7 +41,7 @@ final class DrawListViewModelTests: XCTestCase {
             XCTAssertFalse(viewModel.isLoading)
             XCTAssertNil(viewModel.errorMessage)
             XCTAssertEqual(viewModel.draws.count, 1)
-            XCTAssertEqual(viewModel.draws.first!.id, "1")
+            XCTAssertEqual(viewModel.draws.first!.id, "draw_id")
         }
     }
     

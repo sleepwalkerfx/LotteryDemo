@@ -27,8 +27,7 @@ class DrawListViewModel: ObservableObject {
         errorMessage = nil
         
         do {
-            let drawModels = try self.lotteryDrawService.getDraws()
-            try? await Task.sleep(nanoseconds: 2_000_000_000) // simulate a delay to see the loader
+            let drawModels = try await self.lotteryDrawService.getDraws()
             self.draws = drawModels.map { DrawItemModel(draw: $0, localizationService: localizationService)}
         } catch {
             errorMessage = error.localizedDescription
