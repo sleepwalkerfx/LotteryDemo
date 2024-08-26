@@ -15,4 +15,4 @@ Although some of these improvements were not explicitly required, I aimed to sho
 ### Currently:
 - Detail views support swipe gestures.
 - The `NavigationStack` mechanism is used for navigation, but this could be improved by introducing a separate class responsible for navigation, similar to the coordinator pattern.
-- With more time, I would further enhance the UI.
+- With more time, I would further enhance the UI, and consider modularizing the application.
